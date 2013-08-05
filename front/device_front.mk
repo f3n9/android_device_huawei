@@ -22,6 +22,7 @@ $(call inherit-product, hardware/ti/omap4xxx/omap4.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
 
+DEVICE_FOLDER := device/huawei/front
 
 # This file includes all definitions that apply to ALL front devices, and
 # are also specific to front devices
@@ -59,6 +60,7 @@ PRODUCT_COPY_FILES += \
 	device/huawei/front/ramdisk/init.front.usb.rc:root/init.front.usb.rc \
 	device/huawei/front/ramdisk/ueventd.rc:root/ueventd.rc \
 	device/huawei/front/ramdisk/ueventd.front.rc:root/ueventd.front.rc \
+	device/huawei/front/ramdisk/fstab.front:root/fstab.front \
 	device/huawei/front/ramdisk/default.prop:root/default.prop
 
 # Media / Audio
@@ -67,6 +69,7 @@ PRODUCT_COPY_FILES += \
 	device/huawei/front/media/media_codecs.xml:system/etc/media_codecs.xml \
 	device/huawei/front/audio/audio_policy.conf:system/etc/audio_policy.conf \
 	device/huawei/front/audio/huawei/audio/cm_front_audio_config.conf:system/etc/huawei/audio/cm_front_audio_config.conf \
+	device/huawei/front/audio/huawei/audio/cm_front_audio_config.conf:system/etc/huawei/audio/mk_front_audio_config.conf \
 	device/huawei/front/audio/huawei/audio/front_audio_config.conf:system/etc/huawei/audio/front_audio_config.conf \
 	device/huawei/front/audio/huawei/audio/front_factory_audio_config.conf:system/etc/huawei/audio/front_factory_audio_config.conf \
 	device/huawei/front/audio/huawei/audio/U9500_audio_config.conf:system/etc/huawei/audio/U9500_audio_config.conf \
@@ -159,10 +162,10 @@ PRODUCT_PACKAGES += \
 	SkLibTiJpeg_Test
 
 # for bugmailer
-PRODUCT_PACKAGES += send_bug
-PRODUCT_COPY_FILES += \
-	system/extras/bugmailer/bugmailer.sh:system/bin/bugmailer.sh \
-	system/extras/bugmailer/send_bug:system/bin/send_bug
+# PRODUCT_PACKAGES += send_bug
+# PRODUCT_COPY_FILES += \
+# 	system/extras/bugmailer/bugmailer.sh:system/bin/bugmailer.sh \
+# 	system/extras/bugmailer/send_bug:system/bin/send_bug
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.setupwizard.enable_bypass=1 \

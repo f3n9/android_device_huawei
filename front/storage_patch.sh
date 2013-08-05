@@ -113,6 +113,8 @@ mkdir ramdisk; cd ramdisk; gzip -dc ../boot.img-ramdisk.gz | cpio -mid ; cd ..
 # copy in files
 ## init.front.rc to ramdisk
 cp ../init.front.rc_${PATCHTYPE} ramdisk/init.front.rc
+## fstab.front to ramdisk
+cp ../fstab.front_${PATCHTYPE} ramdisk/fstab.front
 ## vold.fstab to system/etc
 cp ../vold.fstab_${PATCHTYPE} system/etc/vold.fstab
 
